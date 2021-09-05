@@ -1,5 +1,7 @@
 # Discord-CPU-RAM-rich-presence
 
+![alt text](Screenshot_1.png "example")
+
 <h3> to make yourself CPU/RAM rich presence you need to take a few simple steps <h3>
     
 
@@ -12,3 +14,5 @@
 3. copy your client id from oAuth2
 4. replace the standard text in client_id.txt with yours id
 5. install pypresence and psutil
+    
+
