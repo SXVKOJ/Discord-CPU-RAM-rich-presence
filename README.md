@@ -2,7 +2,7 @@
 
 # to make yourself CPU/RAM rich presence you need to take a few simple steps
 
-1. create an application in Discord Developer [page](https://discord.com/developers/applications)
+1. create an application in Discord Developer [page](https://discord.com/developers/applications) <br>
 ⠀⠀⠀⠀⠀i would recommend to name the app (↓ ↓ ↓ ↓ ↓ ↓ ↓ ↓ ↓ ↓ ↓ ↓ ↓ ↓ ↓ ↓ ↓ ↓ ↓ ↓ ↓ ↓ ↓ ↓ ↓)
 ⠀⠀⠀⠀⠀as it will look good, but you can name the app whatever you want
     
