@@ -41,7 +41,17 @@ def main():
         cpu_per = round(psutil.cpu_percent(), 1)
         mem_per = round(psutil.virtual_memory().percent, 1)
         mem = round(psutil.virtual_memory().used / 1024 ** 2 / 1000, 1)
-        process_name = ("⠀" * 10) + get_top_process()['name'].replace(".exe", "") + '\n'
+        
+        offset = 10
+
+        process_name = ("⠀" * offset) + get_top_process()['name'].replace(".exe", "") + '\n'
+
+        if len(process_name) - offset < 9:
+            offset += 9 - (len(process_name) - offset)
+        else:
+            offset = 10
+
+        process_name = ("⠀" * offset) + get_top_process()['name'].replace(".exe", "") + '\n'
 
         rpc.update(buttons=[
             {
