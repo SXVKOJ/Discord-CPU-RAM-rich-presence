@@ -3,7 +3,7 @@ import time
 import psutil
 
 
-def parse_id():
+def parse():
     client_id = None
     delay = None
 
@@ -18,7 +18,7 @@ def parse_id():
     if client_id is None:
         print("client_id is not found! Please check client_id.txt")
 
-    return [client_id, delay]
+    return {"client_id": client_id, "delay": delay}
 
 
 def get_top_process():
@@ -40,7 +40,7 @@ def get_top_process():
 
 
 def main():
-    rpc = Presence(parse_id())
+    rpc = Presence(parse()["client_id"])
 
     rpc.connect()
 
@@ -82,7 +82,7 @@ def main():
             # start=l_time,                  turn on if you need a timer by type (1m left...)
         )
 
-        time.sleep(1)  # the higher the value, the lower the CPU consumption, but looks worse
+        time.sleep(parse()["delay"])  # the higher the value, the lower the CPU consumption, but looks worse
 
 
 if __name__ == "__main__":
