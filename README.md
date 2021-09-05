@@ -18,4 +18,5 @@
     
 
 pip install pypresence
+    
 pip install psutil
