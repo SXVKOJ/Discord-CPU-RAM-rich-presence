@@ -1,6 +1,6 @@
 # Discord-CPU-RAM-rich-presence
 
-<h3> to make yourself CPU/RAM rich presence you need to take a few simple steps
+<h3> to make yourself CPU/RAM rich presence you need to take a few simple steps <h3>
     
 
 1. create an application in Discord Developer [page](https://discord.com/developers/applications)
