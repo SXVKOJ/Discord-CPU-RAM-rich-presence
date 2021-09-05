@@ -4,6 +4,8 @@ import psutil
 
 
 def parse():
+    ''' returns a dictionary with delay_id and delay '''
+
     client_id = None
     delay = None
 
@@ -43,6 +45,9 @@ def main():
     rpc = Presence(parse()["client_id"])
 
     rpc.connect()
+
+    print(f"\nDEBUG | client_id: {parse()['client_id']}")
+    print(f"DEBUG | delay: {parse()['delay']}")
 
     while True:
         cpu_per = round(psutil.cpu_percent(), 1)
