@@ -16,7 +16,7 @@ def parse_id():
 
 
 def get_top_process():
-    ''' creates process list and return top value (dict) by type [pid] [name] [username]'''
+    ''' creates process list and return top value (dict) by type [pid] [name] [username] '''
     list_of_proc_objects = []
 
     for proc in psutil.process_iter():
