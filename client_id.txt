@@ -1,1 +1,2 @@
-replace this sentence with yours client id
+client_id=
+delay=1
