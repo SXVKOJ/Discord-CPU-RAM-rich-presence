@@ -8,11 +8,11 @@ def parse_id():
     delay = None
 
     with open("client_id.txt", "r") as file:
-        client_id = file.read(0)
+        client_id = file.readline()
         client_id = client_id.split("=")[1]  # the file will look like this (client_id=None)
                                              # and I will split the string in two and take the second part
 
-        delay = file.read(1)
+        delay = file.readline()
         delay = float(delay.split("=")[1])
 
     if client_id is None:
