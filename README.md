@@ -17,3 +17,5 @@
 5. install pypresence and psutil
     
 
+pip install pypresence
+pip install psutil
