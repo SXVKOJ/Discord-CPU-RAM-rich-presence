@@ -16,6 +16,7 @@ def parse_id():
 
 
 def get_top_process():
+    ''' creates process list and return top value (dict) by type [pid] [name] [username]'''
     list_of_proc_objects = []
 
     for proc in psutil.process_iter():
@@ -42,6 +43,12 @@ def main():
         mem_per = round(psutil.virtual_memory().percent, 1)
         mem = round(psutil.virtual_memory().used / 1024 ** 2 / 1024, 1)
         
+        #  aligns the process name in the profile
+        #  with a word length of 9 and an indentation of 10, the text is perfectly centered
+        #  so I compare the length of the process name with the reference
+        
+        #  works well, but could be better
+        
         offset = 10
 
         process_name = ("⠀" * offset) + get_top_process()['name'].replace(".exe", "") + '\n'
@@ -56,7 +63,7 @@ def main():
         rpc.update(buttons=[
             {
                 "label": f"CPU: {cpu_per}%",
-                "url": "https://www.youtube.com/watch?v=dQw4w9WgXcQ&ab"
+                "url": "https://www.youtube.com/watch?v=dQw4w9WgXcQ&ab" #  this is not rickroll, honestly
             },
 
             {
@@ -64,12 +71,12 @@ def main():
                 "url": "https://www.youtube.com/watch?v=dQw4w9WgXcQ&ab"
             }
         ],
-            pid=get_top_process()['pid'],
+            pid=get_top_process()['pid'],  # does not affect anything but I'll leave it 
             state=process_name,
-            # start=l_time,
-            # large_image=current_process if current_process != "" else "empty"
+            # start=l_time,                  turn on if you need a timer by type (1m left...)
         )
-        time.sleep(1)
+        
+        time.sleep(1) #  the higher the value, the lower the CPU consumption, but looks worse
 
 
 if __name__ == "__main__":
