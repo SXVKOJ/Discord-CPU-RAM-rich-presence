@@ -5,14 +5,20 @@ import psutil
 
 def parse_id():
     client_id = None
+    delay = None
 
     with open("client_id.txt", "r") as file:
-        client_id = file.read()
+        client_id = file.read(0)
+        client_id = client_id.split("=")[1]  # the file will look like this (client_id=None)
+                                             # and I will split the string in two and take the second part
+
+        delay = file.read(1)
+        delay = float(delay.split("=")[1])
 
     if client_id is None:
         print("client_id is not found! Please check client_id.txt")
 
-    return client_id
+    return [client_id, delay]
 
 
 def get_top_process():
@@ -42,13 +48,13 @@ def main():
         cpu_per = round(psutil.cpu_percent(), 1)
         mem_per = round(psutil.virtual_memory().percent, 1)
         mem = round(psutil.virtual_memory().used / 1024 ** 2 / 1024, 1)
-        
+
         #  aligns the process name in the profile
         #  with a word length of 9 and an indentation of 10, the text is perfectly centered
         #  so I compare the length of the process name with the reference
-        
+
         #  works well, but could be better
-        
+
         offset = 10
 
         process_name = ("⠀" * offset) + get_top_process()['name'].replace(".exe", "") + '\n'
@@ -63,7 +69,7 @@ def main():
         rpc.update(buttons=[
             {
                 "label": f"CPU: {cpu_per}%",
-                "url": "https://www.youtube.com/watch?v=dQw4w9WgXcQ&ab" #  this is not rickroll, honestly
+                "url": "https://www.youtube.com/watch?v=dQw4w9WgXcQ&ab"  # this is not rickroll, honestly
             },
 
             {
@@ -71,12 +77,12 @@ def main():
                 "url": "https://www.youtube.com/watch?v=dQw4w9WgXcQ&ab"
             }
         ],
-            pid=get_top_process()['pid'],  # does not affect anything but I'll leave it 
+            pid=get_top_process()['pid'],  # does not affect anything but I'll leave it
             state=process_name,
             # start=l_time,                  turn on if you need a timer by type (1m left...)
         )
-        
-        time.sleep(1) #  the higher the value, the lower the CPU consumption, but looks worse
+
+        time.sleep(1)  # the higher the value, the lower the CPU consumption, but looks worse
 
 
 if __name__ == "__main__":
