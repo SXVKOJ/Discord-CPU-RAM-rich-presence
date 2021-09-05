@@ -40,7 +40,7 @@ def main():
     while True:
         cpu_per = round(psutil.cpu_percent(), 1)
         mem_per = round(psutil.virtual_memory().percent, 1)
-        mem = round(psutil.virtual_memory().used / 1024 ** 2 / 1000, 1)
+        mem = round(psutil.virtual_memory().used / 1024 ** 2 / 1024, 1)
         
         offset = 10
 
