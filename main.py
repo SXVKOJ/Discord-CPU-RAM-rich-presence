@@ -4,7 +4,7 @@ import psutil
 
 
 def parse():
-    ''' returns a dictionary with delay_id and delay '''
+    ''' returns a dictionary with client_id and delay '''
 
     client_id = None
     delay = None
