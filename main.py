@@ -41,14 +41,7 @@ def get_top_process():
     return list_of_proc_objects_sorted[0]
 
 
-def main():
-    rpc = Presence(parse()["client_id"])
-
-    rpc.connect()
-
-    print(f"\nDEBUG | client_id: {parse()['client_id']}")
-    print(f"DEBUG | delay: {parse()['delay']}")
-
+def init_mainthread(rpc):
     while True:
         cpu_per = round(psutil.cpu_percent(), 1)
         mem_per = round(psutil.virtual_memory().percent, 1)
@@ -88,6 +81,17 @@ def main():
         )
 
         time.sleep(parse()["delay"])  # the higher the value, the lower the CPU consumption, but looks worse
+
+
+def main():
+    rpc = Presence(parse()["client_id"])
+
+    rpc.connect()
+
+    print(f"\nDEBUG | client_id: {parse()['client_id']}")
+    print(f"DEBUG | delay: {parse()['delay']}")
+
+    init_mainthread(rpc)
 
 
 if __name__ == "__main__":
